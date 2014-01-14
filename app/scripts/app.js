@@ -74,32 +74,54 @@ angular.module('ragewarApp', [
     $locationProvider.html5Mode(true);
   })
   .run(function ($rootScope, $location, $route) {
-    $rootScope.$on('$routeChangeSuccess', function (event, current) {
-      var routes = {
-        'GameCtrl': [
-          { url: '/game', name: 'Home' },
-          { url: '/game/build', name: 'Build' },
-          { url: '/game/battle', name: 'Battle' },
-          { url: '/game/trade', name: 'Trade' },
-          { url: '/game/discovery', name: 'Discovery' },
-          { url: '/game/campaign', name: 'Campaign' },
-          { url: '/game/social', name: 'Social' }
-        ],
-        'MediaCtrl': [
-          { url: '/media', name: 'Videos' },
-          { url: '/media/screens', name: 'Screenshots' },
-          { url: '/media/art', name: 'Art' }
-        ],
-        'AboutCtrl': [
-          { url: '/about', name: 'Company' },
-          { url: '/about/portfolio', name: 'Portfolio' },
-          { url: '/about/team', name: 'Team' }
-        ],
-        'SubscribeCtrl': [],
-        'IndexCtrl': []
-      };
 
+    var routes = {
+      'GameCtrl': [
+        { url: '/game', name: 'Home', className: 'home' },
+        { url: '/game/build', name: 'Build', className: 'build' },
+        { url: '/game/battle', name: 'Battle', className: 'battle' },
+        { url: '/game/trade', name: 'Trade', className: 'trade' },
+        { url: '/game/discovery', name: 'Discovery', className: 'discovery' },
+        { url: '/game/campaign', name: 'Campaign', className: 'campaign' },
+        { url: '/game/social', name: 'Social', className: 'social'}
+      ],
+      'MediaCtrl': [
+        { url: '/media', name: 'Videos', className: 'videos' },
+        { url: '/media/screens', name: 'Screenshots', className: 'screens' },
+        { url: '/media/art', name: 'Art', className: 'art' }
+      ],
+      'AboutCtrl': [
+        { url: '/about', name: 'Company', className: 'company' },
+        { url: '/about/portfolio', name: 'Portfolio', className: 'portfolio' },
+        { url: '/about/team', name: 'Team', className: 'team' }
+      ],
+      'SubscribeCtrl': [],
+      'IndexCtrl': []
+    };
+
+    function findRoute(path) {
+      for (var controller in routes) {
+        for (var route in routes[controller]) {
+          if (routes[controller][route].url === path) {
+            return routes[controller][route];
+          }
+        }
+      }
+
+      return null;
+    };
+
+    function setClass() {
+      var route = findRoute($rootScope.currentPath);
+      if (route !== null) {
+        $rootScope.contentClass = route.className;
+      }
+    };
+
+    $rootScope.$on('$routeChangeSuccess', function (event, current) {
       $rootScope.currentPath = $location.path();
+
+      setClass();
 
       for (var controller in routes) {
         if (controller === current.controller) {
@@ -111,6 +133,14 @@ angular.module('ragewarApp', [
 
     $rootScope.isPageActive = function(url) {
       if ($rootScope.currentPath === url) {
+        return true;
+      }
+
+      return false;
+    };
+
+    $rootScope.isInnerPage = function() {
+      if ($rootScope.currentPath !== '/') {
         return true;
       }
 

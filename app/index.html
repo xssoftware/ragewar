@@ -1,8 +1,8 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!doctype html ng-app="ragewarApp">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="ragewarApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="ragewarApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="ragewarApp"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="ragewarApp"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/styles/main.css" media="all">
     <!-- endbuild -->
   </head>
-  <body ng-app="ragewarApp">
+  <body ng-class="{inner: isInnerPage()}">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -34,7 +34,7 @@
         </li>
       </ul>
 
-      <div class="container view-animate" ng-view></div>
+      <div class="container view-animate" ng-class="{{contentClass}}" ng-view></div>
       <ul class="nav left">
         <li ng-class="{active: isPageActive('/game')}"><a href="/game">About The Game<span></span></a></li>
         <li ng-class="{active: isPageActive('/media')}"><a href="/media">Media<span></span></a></li>
@@ -71,11 +71,11 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
