@@ -34,18 +34,18 @@
         </li>
       </ul>
 
-      <div class="container view-animate" ng-class="{{contentClass}}" ng-view></div>
+      <div class="container view-animate {{contentClass}}" ng-view></div>
       <ul class="nav left">
         <li ng-class="{active: isPageActive('/game')}"><a href="/game">About The Game<span></span></a></li>
         <li ng-class="{active: isPageActive('/media')}"><a href="/media">Media<span></span></a></li>
       </ul>
       <ul class="nav right">
         <li ng-class="{active: isPageActive('/about')}"><a href="/about">About Us<span></span></a></li>
-        <li ng-class="{active: isPageActive('/subscribe')}"><a href="/subscribe">Join Beta<span></span></a></li>
+        <li ng-class="{active: isPageActive('/subscribe')}"><a href="/subscribe">Subscribe<span></span></a></li>
       </ul>
       <div id="social">
         <a href="#" class="kickstarter" title="Kickstarter Campaign">Fund it with:</a>
-      <a href="#" class="paypal" title="Donate with Paypal">Donate now with:</a>
+        <a href="#" class="paypal" title="Donate with Paypal">Support us with:</a>
     </div>
     <div class="footer">
       <p>This is a free massive multiplayer online role playing game (MMORPG) - you don't need to download anything! <br /> You can start playing right away as registration takes just a moment.</p>
