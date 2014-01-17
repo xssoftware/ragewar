@@ -263,7 +263,8 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'subscribe.php'
           ]
         }, {
           expand: true,
@@ -366,10 +367,8 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
-    'rev',
     'usemin',
     'htmlmin'
   ]);
