@@ -76,65 +76,73 @@ angular.module('ragewarApp', [
   })
   .run(function ($rootScope, $location) {
 
-    var routes = {
-      'GameCtrl': [
-        { url: '/game', name: 'Home', className: 'home' },
-        { url: '/game/build', name: 'Build', className: 'build' },
-        { url: '/game/battle', name: 'Battle', className: 'battle' },
-        { url: '/game/trade', name: 'Trade', className: 'trade' },
-        { url: '/game/discovery', name: 'Discovery', className: 'discovery' },
-        { url: '/game/campaign', name: 'Campaign', className: 'campaign' },
-        { url: '/game/social', name: 'Social', className: 'social'}
-      ],
-      'MediaCtrl': [
-        { url: '/media', name: 'Videos', className: 'videos' },
-        { url: '/media/screens', name: 'Screenshots', className: 'screens' },
-        { url: '/media/art', name: 'Art', className: 'art' }
-      ],
-      'AboutCtrl': [
-        { url: '/about', name: 'Company', className: 'company' },
-        { url: '/about/portfolio', name: 'Portfolio', className: 'portfolio' },
-        { url: '/about/team', name: 'Team', className: 'team' }
-      ],
-      'SubscribeCtrl': [],
-      'IndexCtrl': []
-    };
+    var routes = [
+      { url: '/game', name: 'Home', className: 'home', category: 'game' },
+      { url: '/game/build', name: 'Build', className: 'build', category: 'game' },
+      { url: '/game/battle', name: 'Battle', className: 'battle', category: 'game' },
+      { url: '/game/trade', name: 'Trade', className: 'trade', category: 'game' },
+      { url: '/game/discovery', name: 'Discovery', className: 'discovery', category: 'game' },
+      { url: '/game/campaign', name: 'Campaign', className: 'campaign', category: 'game' },
+      { url: '/game/social', name: 'Social', className: 'social', category: 'game' },
+      { url: '/media', name: 'Videos', className: 'videos', category: 'media' },
+      { url: '/media/screens', name: 'Screenshots', className: 'screens', category: 'media' },
+      { url: '/media/art', name: 'Art', className: 'art', category: 'media' },
+      { url: '/about', name: 'Company', className: 'company', category: 'about' },
+      { url: '/about/portfolio', name: 'Portfolio', className: 'portfolio', category: 'about' },
+      { url: '/about/team', name: 'Team', className: 'team', category: 'about' },
+      { url: '/', category: 'index' },
+      { url: '/subscribe', category: 'subscribe' }
+    ];
+
+    function getByCategory(category) {
+      var result = [];
+      for (var i = 0; i < routes.length; i++) {
+        if (routes[i].category === category) {
+          result.push(routes[i]);
+        }
+      }
+
+      if (result.length === 1) {
+        return [];
+      }
+
+      return result;
+    }
 
     function findRoute(path) {
-      for (var controller in routes) {
-        for (var route in routes[controller]) {
-          if (routes[controller][route].url === path) {
-            return routes[controller][route];
-          }
+      for (var i = 0; i < routes.length; i++) {
+        if (routes[i].url === path) {
+          return routes[i];
         }
       }
 
       return null;
     }
 
-    function setClass() {
-      var route = findRoute($rootScope.currentPath);
-      if (route !== null) {
-        $rootScope.contentClass = route.className;
-      }
-    }
-
-    $rootScope.$on('$routeChangeSuccess', function (event, current) {
+    $rootScope.$on('$routeChangeSuccess', function () {
       $rootScope.currentPath = $location.path();
-
-      setClass();
-
-      for (var controller in routes) {
-        if (controller === current.controller) {
-          $rootScope.links = routes[controller];
-          return;
-        }
+      var route = findRoute($location.path());
+      if (route !== null && $rootScope.currentCategory !== route.category) {
+        $rootScope.links = getByCategory(route.category);
+        $rootScope.currentCategory = route.category;
+        $rootScope.contentClass = route.className;
       }
     });
 
     $rootScope.isPageActive = function(url) {
       if ($rootScope.currentPath === url) {
         return true;
+      }
+
+      return false;
+    };
+
+    $rootScope.isCategoryActive = function(category) {
+      var route = findRoute($rootScope.currentPath);
+      if (route !== null) {
+        if (route.category === category) {
+          return true;
+        }
       }
 
       return false;
