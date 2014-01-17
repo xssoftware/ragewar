@@ -8,7 +8,7 @@
   <span ng-show="form.name.$dirty && form.name.$error.minlength">You have entered an invalid name.<br /></span>
   <span ng-show="(form.name.$dirty && form.email.$dirty) && form.terms.$invalid">Please agree to the terms and conditions.<br /></span>
 </div>
-<div class="msg info" ng-show="hasMessage">Thank you for subscribing!</div>
+<div class="msg info" ng-show="hasMessage">{{message}}</div>
 
 <form name="form" novalidate ng-submit="subscribe()">
 	<div class="row">
