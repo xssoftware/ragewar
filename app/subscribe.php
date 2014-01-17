@@ -2,6 +2,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type');
 
+require('config.php');
+
 function respond_with_error($message = '') {
   $response = array('error' => 1, $message);
   respond($response);
@@ -20,12 +22,12 @@ function respond($output) {
 
 if (isset($_POST['name']) && isset($_POST['email'])) {
   // Connect to mysql
-  $link = mysql_connect('localhost', 'USERNAME', 'PASSWORD'); // This is an open source project do not set username and password here
+  $link = mysql_connect('localhost', DB_USER, DB_PASS); // This is an open source project do not set username and password here
   if(!$link || mysql_error()) {
     respond_with_error();
   }
 
-  mysql_select_db('ragewar_teaser');
+  mysql_select_db(DB_NAME);
 
   if(mysql_error()) {
     respond_with_error();
