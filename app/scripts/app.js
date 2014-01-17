@@ -74,7 +74,7 @@ angular.module('ragewarApp', [
 
     $locationProvider.html5Mode(true);
   })
-  .run(function ($rootScope, $location, $route) {
+  .run(function ($rootScope, $location) {
 
     var routes = {
       'GameCtrl': [
@@ -110,14 +110,14 @@ angular.module('ragewarApp', [
       }
 
       return null;
-    };
+    }
 
     function setClass() {
       var route = findRoute($rootScope.currentPath);
       if (route !== null) {
         $rootScope.contentClass = route.className;
       }
-    };
+    }
 
     $rootScope.$on('$routeChangeSuccess', function (event, current) {
       $rootScope.currentPath = $location.path();

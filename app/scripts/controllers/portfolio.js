@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('ragewarApp')
-  .controller('PortfolioCtrl', function ($scope) {
+  .controller('PortfolioCtrl', [function () {
 
-});
+}]);
