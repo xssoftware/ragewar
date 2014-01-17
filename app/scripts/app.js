@@ -3,7 +3,8 @@
 angular.module('ragewarApp', [
   'ngResource',
   'ngRoute',
-  'ngAnimate'
+  'ngAnimate',
+  'ragewar.scroll'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -148,4 +149,8 @@ angular.module('ragewarApp', [
     };
 
     $rootScope.links = [];
+
+    Shadowbox.init({
+      skipSetup: true
+    });
   });

@@ -1,20 +1,26 @@
 <div class="title">Join Beta</div>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
 
-<div class="msg error"></div>
-<div class="msg info"></div>
+<div class="msg error" ng-show="(form.email.$dirty && form.email.$invalid) || (form.name.$dirty && form.name.$invalid) || (form.name.$dirty && form.email.$dirty && form.terms.$invalid)">
+  <span ng-show="form.email.$dirty && form.email.$error.required">Please enter you email.<br /></span>
+  <span ng-show="form.email.$dirty && form.email.$error.email">You have entered an invalid email.<br /></span>
+  <span ng-show="form.name.$dirty && form.name.$error.required">Please enter you name.<br /></span>
+  <span ng-show="form.name.$dirty && form.name.$error.minlength">You have entered an invalid name.<br /></span>
+  <span ng-show="(form.name.$dirty && form.email.$dirty) && form.terms.$invalid">Please agree to the terms and conditions.<br /></span>
+</div>
+<div class="msg info" ng-show="hasMessage">Thank you for subscribing!</div>
 
-<form>
+<form name="form" novalidate ng-submit="subscribe()">
 	<div class="row">
-	    <input type="text" name="name" placeholder="Your name" />
-	    <input type="text" name="email" placeholder="Your e-mail" />
+	    <input type="text" ng-model="user.name" ng-minlength="3" name="name" placeholder="Your name" required />
+	    <input type="email" ng-model="user.email" name="email" placeholder="Your e-mail" required />
 	</div>
 	<div class="row terms">
-		<input type="checkbox" name="terms" id="terms">
+		<input type="checkbox" ng-model="user.terms" name="terms" id="terms" required />
 		<label for="terms">I agree to the</label>
 		<a href="#" target="_blank">Terms and Conditions</a>
 	</div>
 	<div class="buttonrow">
-		<input type="button" value="Submit" />
+		<input type="submit" value="Submit" ng-disabled="form.$invalid || submitted" />
 	</div>
 </form>
