@@ -20,7 +20,7 @@ function respond($output) {
 
 if (isset($_POST['name']) && isset($_POST['email'])) {
   // Connect to mysql
-  $link = mysql_connect('localhost', 'USERNAME', 'PASSWORD');
+  $link = mysql_connect('localhost', 'USERNAME', 'PASSWORD'); // This is an open source project do not set username and password here
   if(!$link || mysql_error()) {
     respond_with_error();
   }
