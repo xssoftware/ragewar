@@ -1,0 +1,5 @@
+<?php
+define('DB_USER', 'DB_USERNAME_HERE');
+define('DB_PASS', 'DB_PASSWORD_HERE');
+define('DB_NAME', 'DB_NAME_HERE');
+?>
