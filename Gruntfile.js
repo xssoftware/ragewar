@@ -264,7 +264,8 @@ module.exports = function (grunt) {
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*',
-            'subscribe.php'
+            'subscribe.php',
+            'config.php'
           ]
         }, {
           expand: true,
