@@ -186,7 +186,7 @@ height: 180px;
   height: 60px;
 }
 
-#social a {
+#social a, #social span {
   float: left;
   color: #aaa69f;
   font-size: 9px;
@@ -200,12 +200,21 @@ height: 180px;
   width: 160px;
 }
 
-#social a.paypal {
-  background: url(../images/social_paypal.png) bottom left no-repeat;
+#social span.paypal {
   width: 108px;
 }
 
-#social a:hover {
+.paypal p {
+  margin-bottom: -14px;
+}
+
+#social .paypal form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#social a:hover, #social span:hover {
   color: #fff;
 }
 

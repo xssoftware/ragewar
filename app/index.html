@@ -51,8 +51,16 @@
         <li ng-class="{active: isCategoryActive('subscribe')}"><a href="/subscribe">Subscribe<span></span></a></li>
       </ul>
       <div id="social">
-        <a href="#" class="kickstarter" title="Kickstarter Campaign">Fund it with:</a>
-        <a href="#" class="paypal" title="Donate with Paypal">Support us with:</a>
+        <a class="kickstarter" title="Kickstarter Campaign">Fund it with:</a>
+        <span class="paypal" title="Donate with Paypal">
+          <p>Support us with:</p>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="NVTFCX38NK63Y">
+            <input type="image" src="http://www.ragewar.com/images/social_paypal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </span>
     </div>
     <div class="footer">
       <p>This is a free massive multiplayer online role playing game (MMORPG) - you don't need to download anything! <br /> Play on any browser and tablet devices.</p>
