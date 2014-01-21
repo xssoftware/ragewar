@@ -46,6 +46,7 @@
   border: 1px solid #303030;
   overflow: hidden;
   height: 100px; /* explicit height helps offset children calculate their height */
+  box-shadow: 0px 0px 50px #000;
 }
 
 /* body */

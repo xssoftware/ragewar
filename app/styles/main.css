@@ -67,6 +67,54 @@ body.inner {
   background: url(../images/subscribe_btn.png) top left no-repeat;
   width: 414px;
   height: 198px;
+z-index: 10;
+}
+
+a.building {
+position: absolute;
+background-position: -500 0;
+background-repeat: no-repeat;
+}
+
+body.inner a.building {
+display: none;
+}
+
+a.building:hover {
+background-position: top left;
+}
+
+a.building.game {
+background-image: url(../images/nav_b_1.png);
+top: 103px;
+left: 15px;
+width: 420px;
+height: 280px;
+}
+
+a.building.media {
+background-image: url(../images/nav_b_2.png);
+top: 243px;
+left: 304px;
+width: 300px;
+height: 180px;
+z-index: 1;
+}
+
+a.building.about {
+background-image: url(../images/nav_b_3.png);
+top: 141px;
+right: 190px;
+width: 300px;
+height: 200px;
+}
+
+a.building.subscribe {
+background-image: url(../images/nav_b_4.png);
+top: 241px;
+right: 25px;
+width: 280px;
+height: 180px;
 }
 
 .inner #subscribe {
@@ -216,6 +264,12 @@ body.inner {
 margin-top: -52px;
 }
 
+.container>.pageHeader {
+margin: 0 0 20px;
+padding: 1px;
+border: 1px solid #e2a432;
+border-radius: 5px 5px 5px 5px;
+}
 .container p {
 line-height: 19px;
 margin-bottom: 15px;
@@ -239,6 +293,10 @@ line-height: 66px;
 p.first:first-line {
 }
 
+p.nostyle {
+text-indent: 0;
+margin-bottom: 10px;
+}
 .container a {
 color: #e2a432;
 text-decoration: underline;
@@ -268,6 +326,34 @@ border-radius: 5px 5px 5px 5px;
 border-radius: 3px 3px 3px 3px;
 }
 
+.team {
+float: left;
+width: 255px;
+margin: 0 5px;
+}
+
+.team img {
+float: left;
+margin: 0 10px 10px 0px;
+padding: 1px;
+border: 1px solid #e2a432;
+border-radius: 5px 5px 5px 5px;
+}
+
+.team big {
+display: block;
+margin: 10px 0;
+color: #e2a432;
+}
+
+.msg.error {
+text-align: center;
+}
+
+.msg.error span {
+background: url(../images/ico_warning.png) top left no-repeat;
+padding: 4px 0 0 21px;
+}
 form {
 margin: 10px;
 padding: 10px 0 0;
@@ -277,7 +363,7 @@ border-bottom: 1px solid #e2a432;
 
 form .row,
 form .buttonrow {
-margin-bottom: 15px;
+margin-bottom: 10px;
 overflow: hidden;
 }
 
@@ -300,6 +386,9 @@ form .row input[type="checkbox"] {
 margin: 0 0 0 5px;
 }
 
+form .terms label {
+margin: 0 4px;
+}
 form .terms a:hover {
 text-decoration: none;
 }
@@ -325,12 +414,21 @@ background-position: bottom left;
 color: #fff;
 }
 
+form .buttonrow input:disabled {
+opacity: 0.5;
+}
+
+form .buttonrow input:hover:disabled {
+background-position: top left;
+color: #e2a432;
+}
 form input.ng-invalid.ng-dirty {
-  background-color: #FA787E;
+background-color: #ef646b;
+border: 1px solid #ee232e;
 }
 
 form input.ng-valid.ng-dirty {
-  background-color: #78FA89;
+background-color: #43b852;
 }
 
 .footer {
@@ -348,7 +446,15 @@ form input.ng-valid.ng-dirty {
   margin: 0 0 10px;
 }
 
-*,*:hover,*:focus,*:active { outline: 0px none; }
+.footer a {
+color: #af7900;
+text-decoration: none;
+}
+
+.footer a:hover {
+color: #af7900;
+text-decoration: underline;
+}
 
 /* Styles specific to this particular page */
 .scroll-pane
@@ -363,3 +469,5 @@ form input.ng-valid.ng-dirty {
   height: auto;
   max-height: 200px;
 }
+
+*,*:hover,*:focus,*:active { outline: 0px none; }

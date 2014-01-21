@@ -1,14 +1,15 @@
 <div class="title">Join Beta</div>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+<p class="nostyle">Subscribe. Just do it!<br>
+We promise not to spam you and send you a magnificent mail only if it’s life frightening or it’s something we promise to deliver, for example, a beta key for Rage War.</p>
 
 <div class="msg error" ng-show="(form.email.$dirty && form.email.$invalid) || (form.name.$dirty && form.name.$invalid) || (form.name.$dirty && form.email.$dirty && form.terms.$invalid)">
-  <span ng-show="form.email.$dirty && form.email.$error.required">Please enter you email.<br /></span>
+  <span ng-show="form.email.$dirty && form.email.$error.required">Please enter your email.<br /></span>
   <span ng-show="form.email.$dirty && form.email.$error.email">You have entered an invalid email.<br /></span>
-  <span ng-show="form.name.$dirty && form.name.$error.required">Please enter you name.<br /></span>
+  <span ng-show="form.name.$dirty && form.name.$error.required">Please enter your name.<br /></span>
   <span ng-show="form.name.$dirty && form.name.$error.minlength">You have entered an invalid name.<br /></span>
   <span ng-show="(form.name.$dirty && form.email.$dirty) && form.terms.$invalid">Please agree to the terms and conditions.<br /></span>
 </div>
-<div class="msg info" ng-show="hasMessage">{{message}}</div>
+<div class="message success" ng-show="hasMessage">{{message}}</div>
 
 <form name="form" novalidate ng-submit="subscribe()">
 	<div class="row">
@@ -18,7 +19,7 @@
 	<div class="row terms">
 		<input type="checkbox" ng-model="user.terms" name="terms" id="terms" required />
 		<label for="terms">I agree to the </label>
-		<a href="#" target="_blank">Terms and Conditions</a>
+		<a href="http://www.xs-software.com/company.php?go=terms" target="_blank">Terms and Conditions</a>
 	</div>
 	<div class="buttonrow">
 		<input type="submit" value="Submit" ng-disabled="form.$invalid || submitted" />
