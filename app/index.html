@@ -28,12 +28,13 @@
       <a ng-href="/" id="logo">
         <h1>Next Best Thing</h1>
       </a>
-      <a href="/game" class="building game"></a>
-      <a href="/media" class="building media"></a>
-      <a href="/about" class="building about"></a>
-      <a href="/subscribe" class="building subscribe"></a>
 
-      <a ng-href="/subscribe" id="subscribe"></a>
+      <a href="/game" class="building game tooltips"><span>The Game</span></a>
+      <a href="/media" class="building media tooltips"><span>Media</span></a>
+      <a href="/about" class="building about tooltips"><span>About Us</span></a>
+      <a href="/subscribe" class="building subscribe tooltips"><span>Subscribe</span></a>
+      	
+      <a ng-href="#/subscribe" id="subscribe"></a>
 
       <ul class="subnav">
         <li ng-repeat="link in links" ng-class="{active: isPageActive(link.url)}" class="navigation-animation">

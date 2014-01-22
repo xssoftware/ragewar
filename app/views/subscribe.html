@@ -9,7 +9,7 @@ We promise not to spam you and send you a magnificent mail only if it’s life f
   <span ng-show="form.name.$dirty && form.name.$error.minlength">You have entered an invalid name.<br /></span>
   <span ng-show="(form.name.$dirty && form.email.$dirty) && form.terms.$invalid">Please agree to the terms and conditions.<br /></span>
 </div>
-<div class="message success" ng-show="hasMessage">{{message}}</div>
+<div class="msg info" ng-show="hasMessage"><span>{{message}}</span></div>
 
 <form name="form" novalidate ng-submit="subscribe()">
 	<div class="row">

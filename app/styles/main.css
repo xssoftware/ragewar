@@ -68,11 +68,12 @@ body.inner {
   width: 414px;
   height: 198px;
 z-index: 10;
+transition: top 0.5s;
 }
 
 a.building {
 position: absolute;
-background-position: -500 0;
+background-position: -500px 0px;
 background-repeat: no-repeat;
 }
 
@@ -355,13 +356,19 @@ margin: 10px 0;
 color: #e2a432;
 }
 
-.msg.error {
+.msg {
 text-align: center;
 }
 
 .msg.error span {
 background: url(../images/ico_warning.png) top left no-repeat;
 padding: 4px 0 0 21px;
+color: #e2a432;
+}
+.msg.info span {
+background: url(../images/ico_success.png) top left no-repeat;
+padding: 4px 0 0 21px;
+color: #4d9623;
 }
 form {
 margin: 10px;
@@ -380,12 +387,12 @@ form .row input[type="text"], form .row input[type="email"] {
 float: left;
 background: #bbb38c;
 width: 245px;
-height: 20px;
+height: 40px;
 margin: 0 5px;
 color: #352823;
 font-size: 13px;
 font-family: "trajan", Georgia, Arial, sans-serif;
-padding: 18px 10px 16px;
+padding: 5px 10px 5px;
 border: 1px solid #a57e2e;
 border-radius: 5px 5px 5px 5px;
 box-shadow: inset 0 0 10px #000000;
@@ -451,7 +458,7 @@ background-color: #43b852;
 }
 
 .footer p {
-  color: #765d44;
+color: #997858;
   margin: 0 0 10px;
 }
 
@@ -478,5 +485,43 @@ text-decoration: underline;
   height: auto;
   max-height: 200px;
 }
+
+/* Tooltips */
+
+a.tooltips {
+
+}
+
+a.tooltips span {
+visibility: hidden;
+background: url(../images/building_tooltip.png) top left no-repeat;
+position: absolute;
+bottom: 110px;
+width: 110px;
+color: #e2a432;
+height: 100px;
+padding: 0 0 0 70px;
+line-height: 102px;
+font-size: 14px;
+transition: bottom 0.5s;
+}
+
+a.game.tooltips span {
+bottom: 180px;
+}
+
+a.tooltips:hover.tooltips span {
+visibility: visible;
+opacity: 0.9;
+bottom: 120px;
+left: 50%;
+margin-left: -90px;
+z-index: 10;
+}
+
+a.game.tooltips:hover.tooltips span {
+bottom: 190px;
+}
+
 
 *,*:hover,*:focus,*:active { outline: 0px none; }
