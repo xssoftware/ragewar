@@ -179,6 +179,17 @@ height: 180px;
   background-position: 0px -48px;
 }
 
+.fb-like {
+position: absolute;
+top: 18px;
+left: 20px;
+}
+
+.twitter-share-button {
+position: absolute;
+top: 48px;
+left: 20px;
+}
 #social {
   position: absolute;
   top: 0px;
@@ -306,6 +317,9 @@ p.first:first-line {
 p.nostyle {
 text-indent: 0;
 margin-bottom: 10px;
+}
+p.nostyle big {
+font-size: 14px;
 }
 .container a {
 color: #e2a432;

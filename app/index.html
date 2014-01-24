@@ -33,8 +33,12 @@
       <a href="/media" class="building media tooltips"><span>Media</span></a>
       <a href="/about" class="building about tooltips"><span>About Us</span></a>
       <a href="/subscribe" class="building subscribe tooltips"><span>Subscribe</span></a>
-      	
-      <a ng-href="#/subscribe" id="subscribe"></a>
+
+      <a ng-href="/subscribe" id="subscribe"></a>
+      
+      <div class="fb-like" data-href="https://www.facebook.com/ragewarxs" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="small" data-count="horizontal">Tweet</a>
 
       <ul class="subnav">
         <li ng-repeat="link in links" ng-class="{active: isPageActive(link.url)}" class="navigation-animation">
@@ -79,6 +83,17 @@
        ga('create', 'UA-47266145-1');
        ga('send', 'pageview');
     </script>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    
+    <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=135708906439464";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
     <!--[if lt IE 9]>
     <script src="/bower_components/es5-shim/es5-shim.js"></script>
