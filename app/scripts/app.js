@@ -89,7 +89,7 @@ angular.module('ragewarApp', [
       { url: '/media/art', name: 'Art', className: 'art', category: 'media' },
       { url: '/about', name: 'Company', className: 'company', category: 'about' },
       { url: '/about/portfolio', name: 'Portfolio', className: 'portfolio', category: 'about' },
-      { url: '/about/team', name: 'Team', className: 'team', category: 'about' },
+      { url: '/about/team', name: 'Team', className: '', category: 'about' },
       { url: '/', category: 'index' },
       { url: '/subscribe', category: 'subscribe' }
     ];
