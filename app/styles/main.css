@@ -194,7 +194,7 @@ left: 20px;
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 310px;
+  width: 369px;
   height: 60px;
 }
 
@@ -207,9 +207,12 @@ left: 20px;
   padding: 0 0 20px;
 }
 
-#social a.kickstarter {
-  background: url(../images/social_kickstarter.png) bottom left no-repeat;
-  width: 160px;
+#social .android {
+  margin-top: 23px;
+}
+
+#social .ios {
+  margin-top: 23px;
 }
 
 #social span.paypal {
